@@ -1,5 +1,4 @@
 :root {
-  --border: #ff57ab;
   --bg-light: #faf6fa;
   --bg: #2e3551;
   --judul: #ce9c3c;
@@ -21,7 +20,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url(img/cover.jpg);
+  background: url(../img/cover.jpg);
   background-size: cover;
   background-position: center;
   z-index: -1;
@@ -47,12 +46,12 @@ body {
 }
 
 .hero h4 {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   color: var(--judul);
 }
 
 .hero p {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   color: var(--judul);
 }
 
@@ -110,7 +109,9 @@ body {
 .home h2,
 .info h2,
 .story h2,
-.gallery h2 {
+.rsvp h2,
+.gallery h2,
+.gifts h2 {
   color: var(--judul);
   font-family: var(--nama-font);
   font-size: 5rem;
@@ -118,7 +119,7 @@ body {
 }
 
 .home h3 {
-  color: var(--font);
+  color: var(--bg);
   font-size: 1.5rem;
   margin-bottom: 1rem;
 }
@@ -145,7 +146,7 @@ body {
 
 .home .couple img {
   width: 100%;
-  border: 6px solid var(--border);
+  border: 6px solid var(--bg);
 }
 
 .home .heart {
@@ -209,21 +210,24 @@ body {
 
 /* story start */
 .story,
-.gallery {
+.gallery,
+.rsvp,
+.gifts {
   padding-top: 10rem;
   padding-bottom: 8rem;
   background-color: var(--bg-light);
 }
 
-.story h3 {
+.story h3,
+.gifts h3 {
   color: var(--judul);
 }
 
 .story p,
-.gallery p {
+.rsvp p {
   font-size: 1rem;
   font-weight: 300;
-  color: var(--font);
+  color: var(--bg);
 }
 
 .timeline {
@@ -292,8 +296,79 @@ body {
 .gallery {
   background-color: var(--bg);
 }
+.gallery p,
+.gifts p {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--font);
+}
 
 /*gallery end  */
+
+/* RSVP start */
+.rsvp {
+  background-color: var(--bg-light);
+}
+
+.rsvp h2 {
+  font-size: 4.5rem;
+}
+
+.rsvp form label {
+  color: var(--bg);
+}
+
+.rsvp button {
+  background-color: var(--judul);
+  color: var(--bg);
+  border: 1px solid var(--judul);
+}
+.rsvp button:hover {
+  background-color: var(--bg);
+  color: var(--judul);
+  border: 1px solid var(--bg);
+}
+/* RSVP end */
+
+/* gits start */
+.gifts {
+  background-color: var(--bg);
+}
+
+.gifts span {
+  text-transform: uppercase;
+  color: var(--font);
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 1rem;
+}
+/* gits end */
+
+/* footer */
+footer {
+  border-top: 1px solid var(--judul);
+  padding: 3rem;
+  background-color: var(--bg);
+  color: var(--bg-light);
+}
+
+footer a {
+  color: var(--bg-light);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: var(--judul);
+}
+
+footer li {
+  list-style: none;
+  display: inline;
+  margin: 0.5rem;
+}
+/* footer */
 
 /* media query */
 
@@ -307,7 +382,7 @@ body {
 /* laptop */
 @media (max-width: 992px) {
   html {
-    font-size: 75%;
+    font-size: 80%;
   }
   .simply-countdown > .simply-section {
     padding: 60px;
@@ -336,8 +411,9 @@ body {
 /* tablet */
 @media (max-width: 768px) {
   html {
-    font-size: 65%;
+    font-size: 70%;
   }
+
   .simply-countdown > .simply-section {
     padding: 50px;
     margin: 5px;
@@ -356,7 +432,7 @@ body {
 /* mobile phone */
 @media (max-width: 578px) {
   html {
-    font-size: 60%;
+    font-size: 65%;
   }
 
   .simply-countdown > .simply-section {
