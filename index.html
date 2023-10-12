@@ -554,8 +554,8 @@
     <!-- parameter/ nama tau di link -->
     <script>
       const urlParams = new URLSearchParams(window.location.search)
-      const Status = urlParams.get('p') || 'Bapak/Ibu/Saudara/i';
-      const nama = urlParams.get('UD') || '';
+      const Status = urlParams.get('sbg') || 'Bapak/Ibu/Saudara/i';
+      const nama = urlParams.get('nm') || '';
 
       const namaContainer = document.querySelector('.hero h4 span');
       namaContainer.innerText = `${Status} ${nama},` .replace(/ ,$/, ',');
