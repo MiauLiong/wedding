@@ -10,7 +10,6 @@
 body {
   font-size: 1.2rem;
   font-family: "Work Sans" sans-serif;
-  min-height: 400rem;
 }
 
 .hero::before {
@@ -370,6 +369,57 @@ footer li {
 }
 /* footer */
 
+/* audio */
+
+.audio-icon-wrapper {
+  width: 3.3rem;
+  height: 2.6rem;
+  font-size: 3rem;
+  position: fixed;
+  bottom: 2.5rem;
+  right: 2rem;
+  color: white;
+  cursor: pointer;
+  opacity: var(0.5);
+  mix-blend-mode: difference;
+  animation: musik 1.5s infinite;
+}
+
+@keyframes musik {
+  0% {
+    font-size: 2.3rem;
+  }
+  15% {
+    font-size: 2.5rem;
+  }
+
+  25% {
+    font-size: 2.7rem;
+  }
+
+  30% {
+    font-size: 2.9rem;
+  }
+
+  50% {
+    font-size: 3rem;
+  }
+
+  60% {
+    font-size: 2.9rem;
+  }
+  75% {
+    font-size: 2.7rem;
+  }
+  90% {
+    font-size: 2.5rem;
+  }
+  100% {
+    font-size: 2.3rem;
+  }
+}
+/* audio */
+
 /* media query */
 
 /* Extra large */
@@ -432,7 +482,7 @@ footer li {
 /* mobile phone */
 @media (max-width: 578px) {
   html {
-    font-size: 65%;
+    font-size: 60%;
   }
 
   .simply-countdown > .simply-section {

@@ -35,7 +35,7 @@
   <body>
     <section id="hero" class="hero w-100 h-100 p-3 mx-auto text-center d-flex justify-content-center align-items-center text-white">
       <main>
-        <h4>Kepada Bapak/Ibu/Saudara/i,</h4>
+        <h4>Kepada <span>Bapak/Ibu/Saudara/i,</span></h4>
         <h1>Jack & Rose</h1>
         <p>Akan melangsungkan resepsi pernikahan dalam:</p>
         <div class="simply-countdown"></div>
@@ -129,6 +129,8 @@
               Alamat: Gedung Kologdam, Kodiklat TNI AD. <br />
               JL.Aceh, Merdeka, Kec. Sumur Bandung, kota Bandung
             </p>
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.839933235277!2d107.61686399999999!3d-6.909734899999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e635c9284fc1%3A0x268bddf9bd0971c0!2sGedung%20Kologdam!5e0!3m2!1sid!2sid!4v1697120652953!5m2!1sid!2sid" width="100%" height="230" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             <a href="https://maps.app.goo.gl/JYZK2LBCSfUUYiFE7" terget="_blank" class="btn btn-light btn-sm my-3">Klik untuk membuka peta</a>
           </div>
         </div>
@@ -351,6 +353,29 @@
             </div>
           </form>
 
+          <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
+              <div id="disqus_thread"></div>
+                <script>
+                    /**
+                    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                    /*
+                    var disqus_config = function () {
+                    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    };
+                    */
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://undangan-jack-rose.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+              </div>
+
         </div>
       </div>
     </section>
@@ -406,6 +431,19 @@
      </footer>
     <!-- footer end -->
 
+    <!-- audio start -->
+    <div class="audio-container">
+      <audio id="lagu" autoplay loop >
+        <source src="audio/cant-help-falling-in-love.mp3" type="audio/mp3">
+      </audio>
+
+      <div class="audio-icon-wrapper" style="display: none;">
+        <i class="bi bi-music-note-list"></i>
+          
+        </div>
+    </div>
+    <!-- audio end -->
+
     <!-- Option 1: Bootstrap Bundle with Popper -->
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -437,6 +475,11 @@
     <!-- script untuk membuka undangan -->
     <script>
       const rootElement = document.querySelector(":root")
+      const audioIcon = document.querySelector('.audio-icon-wrapper')
+      const audioIconI = document.querySelector('.audio-icon-wrapper i')
+      const lagu = document.querySelector('#lagu');
+
+      let laguSedangJalan = false;
 
       function disableScroll(){
            scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -451,15 +494,39 @@
       }
 
       function enableScroll(){
-        window.onscroll =function(){ }
+        window.onscroll = function(){ }
         rootElement.style.scrollBehavior = "smooth"
-        localStorage.setItem('opened', 'true')
+        // localStorage.setItem('opened', 'true')
+        playAudio();
       }
 
-      if(!localStorage.getItem('opened')) {
-        disableScroll()
+      function playAudio(){
+        lagu.volume = 0.2;
+        audioIcon.style.display = 'flex';
+        lagu.play();
+        laguSedangJalan = true;
       }
+
+      audioIcon.onclick = function(){
+        if(laguSedangJalan){
+          lagu.pause();
+          audioIconI.classList.remove('bi-music-note-list')
+          audioIconI.classList.add('bi-pause-circle')
+          
+        } else{
+          lagu.play();
+          audioIconI.classList.add('bi-music-note-list')
+          audioIconI.classList.remove('bi-pause-circle')
+        }
+
+        laguSedangJalan = !laguSedangJalan
+
+      }
+
+      // if(!localStorage.getItem('opened')) {
+      // }
       
+      disableScroll()
     </script>
 
     <!-- gallery script-->
@@ -484,6 +551,20 @@
     });
     </script>
 
+    <!-- parameter/ nama tau di link -->
+    <script>
+      const urlParams = new URLSearchParams(window.location.search)
+      const Status = urlParams.get('p') || 'Bapak/Ibu/Saudara/i';
+      const nama = urlParams.get('UD') || '';
+
+      const namaContainer = document.querySelector('.hero h4 span');
+      namaContainer.innerText = `${Status} ${nama},` .replace(/ ,$/, ',');
+   
+      
+      document.querySelector('#nama').value = nama;
+      
+   
+   </script>
 
   </body>
 </html>
